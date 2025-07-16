@@ -10,5 +10,5 @@ $ ./update-release.sh
 # Run with SSL Config
 ```bash
 $ cd archivesspace
-$ docker compose -f compose.yml -f compose.ssl.yml up --detach
+$ docker compose -f docker-compose.yml -f docker-compose.ssl.yml up --detach
 ```
