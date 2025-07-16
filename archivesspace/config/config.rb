@@ -15,7 +15,7 @@
 ## Set your database name and credentials here.  Example:
 ## AppConfig[:db_url] = "jdbc:mysql://localhost:3306/archivesspace?user=as&password=as123&useUnicode=true&characterEncoding=UTF-8"
 ##
-#AppConfig[:db_url] = proc { AppConfig.demo_db_url }
+AppConfig[:db_url] = 'jdbc:mysql://db:3306/archivesspace?useUnicode=true&characterEncoding=UTF-8&user=as&password=as123&useSSL=false&allowPublicKeyRetrieval=true'
 #
 ## Set the maximum number of database connections used by the application.
 ## Default is derived from the number of indexer threads.
@@ -39,7 +39,7 @@
 #AppConfig[:oai_url] = "http://localhost:8082"
 #
 ## The ArchivesSpace Solr index url default.  You can set it to something else below.
-#AppConfig[:solr_url] = "http://localhost:8983/solr/archivesspace"
+AppConfig[:solr_url] = 'http://solr:8983/solr/archivesspace'
 #
 ## The ArchivesSpace indexer listens on port 8091 by default.  You can
 ## set it to something else below.
@@ -100,13 +100,13 @@
 ## Resist the urge to set this to a big number as it will affect performance
 #AppConfig[:job_thread_count] = 2
 #
-#AppConfig[:oai_proxy_url] = 'http://your-public-oai-url.example.com'
+AppConfig[:oai_proxy_url] = 'http://localhost/oai'
 #
 #AppConfig[:oai_ead_options] = {}
 ## Example: AppConfig[:oai_ead_options] = { :include_daos => true, :use_numbered_c_tags => true, :include_uris => false }
 #
 ## Use Rails.force_ssl when running in production
-#AppConfig[:force_ssl] = false
+AppConfig[:force_ssl] = false
 #
 ###
 ### Other less commonly changed settings are below
@@ -185,8 +185,8 @@
 ## If you are serving user-facing applications via proxy
 ## (i.e., another domain or port, or via https, or for a prefix) it is
 ## recommended that you record those URLs in your configuration
-#AppConfig[:frontend_proxy_url] = proc { AppConfig[:frontend_url] }
-#AppConfig[:public_proxy_url] = proc { AppConfig[:public_url] }
+AppConfig[:frontend_proxy_url] = 'http://localhost/staff/'
+AppConfig[:public_proxy_url] = 'http://localhost/'
 #
 ## Don't override _prefix or _proxy_prefix unless you know what you're doing
 #AppConfig[:frontend_proxy_prefix] = proc { "#{URI(AppConfig[:frontend_proxy_url]).path}/".gsub(%r{/+$}, "/") }
